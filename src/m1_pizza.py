@@ -198,7 +198,7 @@ def run_test_draw_points_on_circle():
     circle.fill_color = 'yellow'
     draw_points_on_circle(window, circle, 5, 'green')
     window.continue_on_mouse_click()
-    
+
 
 def draw_points_on_circle(window, circle, number_of_points, color):
     """
@@ -236,7 +236,7 @@ def draw_points_on_circle(window, circle, number_of_points, color):
       :type color:            str
     """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPLEMENTATION REQUIREMENT:
@@ -245,6 +245,14 @@ def draw_points_on_circle(window, circle, number_of_points, color):
     #
     # Your professor may do this exercise with you as "live coding".
     # -------------------------------------------------------------------------
+    circle.attach_to(window)
+    center = generate_points_on_circle(circle, number_of_points)
+    for k in range(number_of_points):
+        circles = rg.Circle(center[k], 10)
+        circles.fill_color = color
+        circles.attach_to(window)
+        center[k].attach_to(window)
+    window.render()
 
 
 def run_test_pizza():
