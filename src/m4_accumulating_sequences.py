@@ -19,12 +19,12 @@ def main():
     run_test_make_less_simple_string()
 
     # -------------------------------------------------------------------------
-    # TODO: 8. Uncomment the tests below before working _TODO_ 9.
+    # DONE: 8. Uncomment the tests below before working _TODO_ 9.
     #   They launch annoying rg.RoseWindows on each run that you don't want
     #   until you get to _TODO_ 9 and _TODO_ 10.
     # -------------------------------------------------------------------------
-    # run_test_draw_shapes()
-    # run_test_rectangles_from_circles()
+    run_test_draw_shapes()
+    run_test_rectangles_from_circles()
 
 
 def run_test_make_simple_list():
@@ -148,7 +148,7 @@ def make_simple_string(m, n):
 def run_test_make_less_simple_string():
     """ Tests the   make_less_simple_string    function. """
     # -------------------------------------------------------------------------
-    # TODO: 6. Implement this TEST function.
+    # DONE: 6. Implement this TEST function.
     #   It TESTS the  make_less_simple_string  function defined below.
     #   Include at least **   2   ** tests.
     #
@@ -158,6 +158,18 @@ def run_test_make_less_simple_string():
     print('--------------------------------------------------')
     print('Testing the   make_less_simple_string   function:')
     print('--------------------------------------------------')
+
+    # Test 1:
+    expected = '10-11-12-13-14-15-16-17'
+    actual = make_less_simple_string(10, 17)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 2:
+    expected = '20-21-22-23-24-25'
+    actual = make_less_simple_string(20, 25)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
 
 
 def make_less_simple_string(m, n):
@@ -183,9 +195,19 @@ def make_less_simple_string(m, n):
       :type n: int
     """
     # -------------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
+    sequence = ''
+    if m < n:
+        for k in range(m, n + 1):
+            if k == n:
+                sequence = sequence + str(k)
+            else:
+                sequence = sequence + str(k) + '-'
+        return sequence
+    elif m == n:
+        return m
 
 
 def run_test_draw_shapes():
