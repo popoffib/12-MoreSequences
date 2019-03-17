@@ -258,7 +258,7 @@ def draw_points_on_circle(window, circle, number_of_points, color):
 def run_test_pizza():
     """ Tests the   pizza   function. """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement this TEST function.
+    # DONE: 5. Implement this TEST function.
     #   It TESTS the   pizza   function defined below.
     #   Include at least ** 1 ** ADDITIONAL test (that YOU write).
     #
@@ -302,6 +302,15 @@ def run_test_pizza():
     #     -- on a yellow-filled circle.
     # -------------------------------------------------------------------------
 
+    # Test 4:
+    title = 'PIZZA test 4: 77 slices, thin (thickness=2) black lines.'
+    window = rg.RoseWindow(400, 450, title)
+    circle = rg.Circle(rg.Point(200, 250), 200)
+    circle.outline_thickness = 4
+    circle.fill_color = 'yellow'
+    pizza(window, circle, 77, 'black', 2)
+    window.close_on_mouse_click()
+
 
 def pizza(window, circle, number_of_slices, color, thickness):
     """
@@ -333,7 +342,7 @@ def pizza(window, circle, number_of_slices, color, thickness):
       :type thickness:        int
     """
     # -------------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPLEMENTATION REQUIREMENT:
@@ -341,6 +350,14 @@ def pizza(window, circle, number_of_slices, color, thickness):
     #    (defined above) to generate the relevant points,
     #    and then draw lines that are based in part on those points.
     # -------------------------------------------------------------------------
+    circle.attach_to(window)
+    point = generate_points_on_circle(circle, number_of_slices)
+    for k in range(number_of_slices):
+        line = rg.Line(point[k], circle.center)
+        line.thickness = thickness
+        line.color = color
+        line.attach_to(window)
+    window.render()
 
 
 def run_test_polygon():
